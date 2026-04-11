@@ -44,6 +44,9 @@ export function Header() {
         <Link to="/#gallery" className="hover:text-accent transition-colors hover:scale-105 transform origin-left">
           Gallery
         </Link>
+        <Link to="/#testimonials" className="hover:text-accent transition-colors hover:scale-105 transform origin-left">
+          Testimonials
+        </Link>
         <Link to="/#blogs" className="hover:text-accent transition-colors hover:scale-105 transform origin-left">
           Blogs
         </Link>

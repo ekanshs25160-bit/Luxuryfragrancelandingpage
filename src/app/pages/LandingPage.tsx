@@ -4,6 +4,7 @@ import { CategoryBanners } from "../components/CategoryBanners";
 import { HighlightReel } from "../components/HighlightReel";
 import { ProductGrid } from "../components/ProductGrid";
 import { Gallery } from "../components/Gallery";
+import { Testimonials } from "../components/Testimonials";
 import { FAB } from "../components/FAB";
 import { Footer } from "../components/Footer";
 
@@ -16,6 +17,7 @@ export function LandingPage() {
         <ProductGrid />
         <CategoryBanners />
         <Gallery />
+        <Testimonials />
         <HighlightReel />
         <Footer />
       </div>
