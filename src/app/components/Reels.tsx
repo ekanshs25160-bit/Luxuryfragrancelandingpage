@@ -71,7 +71,7 @@ export function Reels() {
                 <h4 className="font-serif text-lg text-light mb-1 tracking-wide">{reel.title}</h4>
                 <p className="font-sans text-light/60 text-xs uppercase tracking-widest">{reel.product}</p>
               </div>
-              <button className="w-full py-3 bg-accent hover:bg-light text-brand font-sans text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors rounded-sm">
+              <button className="w-full py-3 bg-light/90 backdrop-blur-sm hover:bg-white text-brand font-sans text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors rounded-sm shadow-lg">
                 <ShoppingBag className="w-4 h-4" /> Shop Now
               </button>
             </div>

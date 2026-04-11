@@ -74,7 +74,7 @@ export function CategoryBanners() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
           >
-            <p className="font-sans uppercase text-[10px] tracking-[0.2em] font-semibold text-accent mb-4">
+            <p className="font-sans uppercase text-[10px] tracking-[0.2em] font-semibold text-white mb-4 ">
               Saanjh Ouds • Evening Ritual
             </p>
             <h2 className="font-serif text-5xl md:text-6xl font-bold tracking-[0.1em] mb-8 leading-tight">
@@ -84,7 +84,7 @@ export function CategoryBanners() {
               A deep chiaroscuro of smoky woods, rich saffron, and intoxicating oud. 
               Engineered to project through evening mist and command attention without saying a word. Perfectly designed for the Indian night.
             </p>
-            <button className="px-8 py-4 border border-accent text-accent hover:bg-accent hover:text-brand font-sans text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-500 w-max group/btn flex items-center gap-3">
+            <button className="px-8 py-4 border border-white text-white hover:bg-white hover:text-brand font-sans text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-500 w-max group/btn flex items-center gap-3">
               Explore The Series
               <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
             </button>
