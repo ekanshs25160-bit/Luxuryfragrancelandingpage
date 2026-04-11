@@ -27,16 +27,16 @@ const PRODUCTS: Product[] = [
 
 export function ProductShowcase() {
   return (
-    <section className="py-32 px-6 md:px-16 bg-[#FAFAFA]">
+    <section className="py-32 px-6 md:px-16 bg-light">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24">
-          <p className="uppercase tracking-[0.2em] text-[#D4AF37] font-sans text-xs font-bold mb-4">
+          <p className="uppercase tracking-[0.2em] text-accent font-sans text-xs font-bold mb-4">
             The Master Collection
           </p>
-          <h2 className="font-serif text-4xl md:text-6xl text-[#2D004B] mb-8 tracking-[0.05em] font-medium">
+          <h2 className="font-serif text-4xl md:text-6xl text-brand mb-8 tracking-[0.05em] font-medium">
             Curated Signatures
           </h2>
-          <div className="w-16 h-px bg-[#D4AF37] mx-auto" />
+          <div className="w-16 h-px bg-accent mx-auto" />
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">

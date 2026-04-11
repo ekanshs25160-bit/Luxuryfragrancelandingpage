@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-primary: #121212;
-  --color-brand-secondary: #f4f4f4;
-  --color-brand-accent: #ff4500;
+  --color-brand-primary: #511c33;
+  --color-brand-secondary: #f5e6d3;
+  --color-brand-accent: #7a2e4d;
+  --color-brand-light: #faf3eb;
+  --color-brand-dark: #2a0f1a;
   
   --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -22,5 +24,54 @@
   }
   .rotate-y-180 {
     transform: rotateY(180deg);
+  }
+
+  /* Brand Color Utilities */
+  .bg-brand {
+    background-color: var(--color-brand-primary);
+  }
+  .bg-brand-secondary {
+    background-color: var(--color-brand-secondary);
+  }
+  .bg-accent {
+    background-color: var(--color-brand-accent);
+  }
+  .bg-light {
+    background-color: var(--color-brand-light);
+  }
+  .bg-dark {
+    background-color: var(--color-brand-dark);
+  }
+
+  .text-brand {
+    color: var(--color-brand-primary);
+  }
+  .text-secondary {
+    color: var(--color-brand-secondary);
+  }
+  .text-accent {
+    color: var(--color-brand-accent);
+  }
+  .text-light {
+    color: var(--color-brand-light);
+  }
+  .text-dark {
+    color: var(--color-brand-dark);
+  }
+
+  .border-brand {
+    border-color: var(--color-brand-primary);
+  }
+  .border-secondary {
+    border-color: var(--color-brand-secondary);
+  }
+  .border-accent {
+    border-color: var(--color-brand-accent);
+  }
+  .border-light {
+    border-color: var(--color-brand-light);
+  }
+  .border-dark {
+    border-color: var(--color-brand-dark);
   }
 }

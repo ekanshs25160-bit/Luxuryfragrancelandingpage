@@ -28,7 +28,7 @@ function ReelCard({ item }: { item: HighlightReelItem }) {
 
   return (
     <div
-      className={`relative shrink-0 w-[min(72vw,280px)] sm:w-[300px] md:w-[320px] snap-start snap-always rounded-sm overflow-hidden bg-black/5 ${cardShadow}`}
+      className={`relative shrink-0 w-[min(72vw,280px)] sm:w-[300px] md:w-[320px] snap-start snap-always rounded-sm overflow-hidden bg-[var(--color-brand-dark)]/5 ${cardShadow}`}
     >
       <div className="relative aspect-[9/16] w-full">
         <video
@@ -40,12 +40,12 @@ function ReelCard({ item }: { item: HighlightReelItem }) {
           playsInline
           preload="metadata"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--color-brand-dark)]/35 via-transparent to-transparent" />
 
         <div className="absolute bottom-4 right-4 pointer-events-auto">
           <a
             href={item.shopHref ?? "#collection"}
-            className="inline-flex items-center justify-center px-4 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.2em] border border-[#D4AF37] text-[#D4AF37] bg-transparent hover:bg-[#D4AF37] hover:text-[#2D004B] transition-colors duration-300"
+            className="inline-flex items-center justify-center px-4 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.2em] border border-accent text-accent bg-transparent hover:bg-accent hover:text-brand transition-colors duration-300"
           >
             Shop Now
           </a>
@@ -61,7 +61,7 @@ type HighlightReelProps = {
 
 export function HighlightReel({ items = DEFAULT_REELS }: HighlightReelProps) {
   return (
-    <section className="bg-[#FFFFFF] py-16 md:py-24 overflow-hidden">
+    <section className="bg-light py-16 md:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12 md:mb-16">
         <motion.div
           className="text-center"
@@ -70,10 +70,10 @@ export function HighlightReel({ items = DEFAULT_REELS }: HighlightReelProps) {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.75, ease: [0.4, 0, 0.2, 1] }}
         >
-          <p className="font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.35em] text-[#2D004B]/80 mb-4">
+          <p className="font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.35em] text-brand/80 mb-4">
             THE FRAGRANCE IN REAL LIFE
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.25rem] text-[#2D004B] font-semibold tracking-[0.06em]">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.25rem] text-brand font-semibold tracking-[0.06em]">
             Moments in Motion
           </h2>
         </motion.div>

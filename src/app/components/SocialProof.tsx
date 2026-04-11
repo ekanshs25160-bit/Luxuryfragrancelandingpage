@@ -39,23 +39,23 @@ const REVIEWS = [
 
 export function SocialProof() {
   return (
-    <section className="py-32 px-6 md:px-16 bg-[#FAFAFA] border-t border-gray-100">
+    <section className="py-32 px-6 md:px-16 bg-light border-t border-light">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <p className="uppercase tracking-[0.2em] text-[#D4AF37] font-sans text-xs font-bold mb-4">
+          <p className="uppercase tracking-[0.2em] text-accent font-sans text-xs font-bold mb-4">
             The Scent Verdict
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#2D004B] mb-8 tracking-[0.05em] font-medium">
+          <h2 className="font-serif text-4xl md:text-5xl text-brand mb-8 tracking-[0.05em] font-medium">
             Subjective Reactions.<br/>Objective Performance.
           </h2>
-          <div className="w-16 h-px bg-[#D4AF37] mx-auto" />
+          <div className="w-16 h-px bg-accent mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {REVIEWS.map((review, i) => (
             <motion.div
               key={review.id}
-              className="bg-white p-8 md:p-10 shadow-lg border border-gray-100 flex flex-col justify-between group"
+              className="bg-light p-8 md:p-10 shadow-lg border border-light flex flex-col justify-between group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -63,31 +63,31 @@ export function SocialProof() {
             >
               <div>
                 {/* Emotional Context Tag */}
-                <div className="inline-flex items-center gap-2 bg-[#F3E5F5] text-[#2D004B] text-[10px] font-sans uppercase font-bold tracking-widest px-3 py-1.5 rounded-sm mb-8">
+                <div className="inline-flex items-center gap-2 bg-brand-secondary text-brand text-[10px] font-sans uppercase font-bold tracking-widest px-3 py-1.5 rounded-sm mb-8">
                   {review.icon} {review.tag}
                 </div>
 
-                <div className="flex text-[#D4AF37] mb-6">
+                <div className="flex text-accent mb-6">
                   {[1, 2, 3, 4, 5].map((s) => (
                     <Star key={s} className="w-4 h-4 fill-current" />
                   ))}
                 </div>
 
-                <p className="font-serif text-lg md:text-xl text-gray-800 leading-relaxed mb-10 tracking-wide">
+                <p className="font-serif text-lg md:text-xl text-dark leading-relaxed mb-10 tracking-wide">
                   "{review.text}"
                 </p>
               </div>
 
               <div className="flex items-center gap-4">
                 <div 
-                  className="w-12 h-12 rounded-full bg-gray-200 bg-cover bg-center border border-gray-200"
+                  className="w-12 h-12 rounded-full bg-light bg-cover bg-center border border-light"
                   style={{ backgroundImage: `url('${review.thumbnail}')` }}
                 />
                 <div>
-                  <h4 className="font-sans text-sm font-bold text-[#2D004B] uppercase tracking-wider">
+                  <h4 className="font-sans text-sm font-bold text-brand uppercase tracking-wider">
                     {review.name}
                   </h4>
-                  <p className="font-sans text-xs text-gray-500 uppercase tracking-widest mt-1">
+                  <p className="font-sans text-xs text-secondary uppercase tracking-widest mt-1">
                     {review.product}
                   </p>
                 </div>

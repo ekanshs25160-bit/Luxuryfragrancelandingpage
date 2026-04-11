@@ -36,7 +36,7 @@ const products: Product[] = [
 
 export function ProductGrid() {
   return (
-    <section id="collection" className="bg-[#FFFFFF] py-24 px-6 md:px-16 scroll-mt-24">
+    <section id="collection" className="bg-light py-24 px-6 md:px-16 scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16"
@@ -45,10 +45,10 @@ export function ProductGrid() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-4xl md:text-5xl text-[#2D004B] font-bold tracking-[0.1em] mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl text-brand font-bold tracking-[0.1em] mb-4">
             THE COLLECTION
           </h2>
-          <p className="font-sans text-[#2D004B]/60 text-sm tracking-widest uppercase">
+          <p className="font-sans text-brand/60 text-sm tracking-widest uppercase">
             Curated High-Performance Extracts
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ function ProductCard({ product }: { product: Product }) {
   const [selectedSize, setSelectedSize] = useState<"8ML" | "50ML">("50ML");
 
   return (
-    <div className="relative w-full min-h-[450px] flex flex-col bg-[#FAFAFA] border border-gray-100 p-8 shadow-sm">
+    <div className="relative w-full min-h-[450px] flex flex-col bg-light border border-light p-8 shadow-sm">
       <div className="w-full h-48 mb-6 relative shrink-0">
         <img
           src={product.image}
@@ -75,13 +75,13 @@ function ProductCard({ product }: { product: Product }) {
           className="w-full h-full object-contain mix-blend-multiply"
         />
       </div>
-      <p className="font-sans text-[10px] text-[#D4AF37] font-bold uppercase tracking-[0.2em] mb-2 text-center">
+      <p className="font-sans text-[10px] text-accent font-bold uppercase tracking-[0.2em] mb-2 text-center">
         {product.type}
       </p>
-      <h3 className="font-serif text-2xl text-[#2D004B] font-bold tracking-[0.05em] mb-2 text-center">
+      <h3 className="font-serif text-2xl text-brand font-bold tracking-[0.05em] mb-2 text-center">
         {product.name}
       </h3>
-      <p className="font-sans text-sm text-[#2D004B]/70 tracking-wide text-center mb-6">
+      <p className="font-sans text-sm text-brand/70 tracking-wide text-center mb-6">
         {product.price}
       </p>
 
@@ -91,8 +91,8 @@ function ProductCard({ product }: { product: Product }) {
           onClick={() => setSelectedSize("8ML")}
           className={`w-12 h-12 rounded-full flex items-center justify-center font-sans text-[10px] font-bold tracking-wider transition-colors ${
             selectedSize === "8ML"
-              ? "bg-[#2D004B] text-[#D4AF37]"
-              : "bg-transparent border border-[#2D004B]/20 text-[#2D004B] hover:border-[#D4AF37]"
+              ? "bg-brand text-accent"
+              : "bg-transparent border border-brand/20 text-brand hover:border-accent"
           }`}
         >
           8ML
@@ -102,8 +102,8 @@ function ProductCard({ product }: { product: Product }) {
           onClick={() => setSelectedSize("50ML")}
           className={`w-12 h-12 rounded-full flex items-center justify-center font-sans text-[10px] font-bold tracking-wider transition-colors ${
             selectedSize === "50ML"
-              ? "bg-[#2D004B] text-[#D4AF37]"
-              : "bg-transparent border border-[#2D004B]/20 text-[#2D004B] hover:border-[#D4AF37]"
+              ? "bg-brand text-accent"
+              : "bg-transparent border border-brand/20 text-brand hover:border-accent"
           }`}
         >
           50ML
@@ -112,7 +112,7 @@ function ProductCard({ product }: { product: Product }) {
 
       <button
         type="button"
-        className="w-full bg-[#2D004B] hover:bg-[#3d0863] text-white py-4 font-sans text-[11px] font-bold uppercase tracking-[0.15em] transition-colors flex items-center justify-center gap-2 mt-auto"
+        className="w-full bg-brand hover:bg-dark text-light py-4 font-sans text-[11px] font-bold uppercase tracking-[0.15em] transition-colors flex items-center justify-center gap-2 mt-auto"
       >
         <ShoppingBag className="w-4 h-4" />
         Add to Bag

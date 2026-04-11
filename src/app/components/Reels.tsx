@@ -30,17 +30,17 @@ const REELS = [
 
 export function Reels() {
   return (
-    <section className="py-24 bg-[#2D004B] text-white overflow-hidden">
+    <section className="py-24 bg-brand text-light overflow-hidden">
       <div className="px-6 md:px-16 mb-16 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-6">
         <div>
           <h2 className="font-serif text-3xl md:text-5xl mb-4 tracking-[0.05em] font-medium">
             In Motion
           </h2>
-          <p className="font-sans text-white/70 max-w-md tracking-wide">
+          <p className="font-sans text-light/70 max-w-md tracking-wide">
             Experience the aura. A curated lookbook of our community defining their presence.
           </p>
         </div>
-        <button className="uppercase tracking-widest text-[#D4AF37] text-sm font-sans font-semibold border-b border-[#D4AF37] pb-1 hover:text-white hover:border-white transition-colors">
+        <button className="uppercase tracking-widest text-accent text-sm font-sans font-semibold border-b border-accent pb-1 hover:text-light hover:border-light transition-colors">
           Follow @Aromaras
         </button>
       </div>
@@ -57,21 +57,21 @@ export function Reels() {
               className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
               style={{ backgroundImage: `url('${reel.image}')` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brand-dark)]/10 via-transparent to-[var(--color-brand-dark)]/80" />
             
             {/* Play Button Indicator */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform duration-500">
-                <Play className="w-6 h-6 text-white ml-1" fill="currentColor" />
+              <div className="w-16 h-16 rounded-full bg-light/10 backdrop-blur-md flex items-center justify-center border border-light/20 group-hover:scale-110 transition-transform duration-500">
+                <Play className="w-6 h-6 text-light ml-1" fill="currentColor" />
               </div>
             </div>
 
             <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col gap-4">
               <div>
-                <h4 className="font-serif text-lg text-white mb-1 tracking-wide">{reel.title}</h4>
-                <p className="font-sans text-white/60 text-xs uppercase tracking-widest">{reel.product}</p>
+                <h4 className="font-serif text-lg text-light mb-1 tracking-wide">{reel.title}</h4>
+                <p className="font-sans text-light/60 text-xs uppercase tracking-widest">{reel.product}</p>
               </div>
-              <button className="w-full py-3 bg-[#D4AF37] hover:bg-white text-[#2D004B] font-sans text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors rounded-sm">
+              <button className="w-full py-3 bg-accent hover:bg-light text-brand font-sans text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors rounded-sm">
                 <ShoppingBag className="w-4 h-4" /> Shop Now
               </button>
             </div>
