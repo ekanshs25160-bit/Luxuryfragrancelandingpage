@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Clock, Moon, Sun, ShoppingBag } from "lucide-react";
+import { Moon, Sun, ShoppingBag } from "lucide-react";
 
 export type Product = {
   id: string;
@@ -8,7 +8,6 @@ export type Product = {
   notes: string;
   images: { default: string; hover: string };
   prices: { "8ML": number; "50ML": number };
-  longevity: string;
   occasion: "Day" | "Night" | "Versatile";
 };
 
@@ -59,9 +58,6 @@ export function ProductCard({ product }: { product: Product }) {
 
         {/* Trust Icons Layer */}
         <div className="absolute top-4 right-4 flex flex-col gap-2">
-          <div className="bg-white/90 backdrop-blur text-[#2D004B] rounded-full px-3 py-1 flex items-center gap-2 text-[10px] uppercase font-bold tracking-wider shadow-sm" title={`Longevity: ${product.longevity}`}>
-            <Clock className="w-3 h-3 text-[#D4AF37]" /> {product.longevity}
-          </div>
           <div className="bg-white/90 backdrop-blur text-[#2D004B] rounded-full px-3 py-1 flex items-center gap-2 text-[10px] uppercase font-bold tracking-wider shadow-sm" title={`Occasion: ${product.occasion}`}>
             {product.occasion === "Night" ? <Moon className="w-3 h-3 text-[#D4AF37]" /> : <Sun className="w-3 h-3 text-[#D4AF37]" />}
             {product.occasion}

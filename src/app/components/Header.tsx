@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { Search, User, ShoppingBag } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { cn } from "../utils";
 
 export function Header() {
@@ -31,10 +31,22 @@ export function Header() {
       transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
     >
       {/* Left - Navigation Links */}
-      <nav className="flex-1 hidden md:flex items-center gap-10 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] text-white ">
-        <Link to="#" className="hover:text-[#D4AF37] transition-colors hover:scale-105 transform origin-left">Shop</Link>
-        <Link to="#" className="hover:text-[#D4AF37] transition-colors hover:scale-105 transform origin-left">Layering Matrix</Link>
-        <Link to="#" className="hover:text-[#D4AF37] transition-colors hover:scale-105 transform origin-left">Finder</Link>
+      <nav className="flex-1 hidden lg:flex items-center gap-6 xl:gap-8 text-[10px] xl:text-[11px] font-sans font-semibold uppercase tracking-[0.1em] text-white">
+        <Link to="/" className="hover:text-[#D4AF37] transition-colors hover:scale-105 transform origin-left">
+          Home
+        </Link>
+        <Link to="/#about" className="hover:text-[#D4AF37] transition-colors hover:scale-105 transform origin-left">
+          About Us
+        </Link>
+        <Link to="/#collection" className="hover:text-[#D4AF37] transition-colors hover:scale-105 transform origin-left">
+          Collection
+        </Link>
+        <Link to="/#blogs" className="hover:text-[#D4AF37] transition-colors hover:scale-105 transform origin-left">
+          Blogs
+        </Link>
+        <Link to="/#contact" className="hover:text-[#D4AF37] transition-colors hover:scale-105 transform origin-left">
+          Contact Us
+        </Link>
       </nav>
 
       {/* Center - Brand Logo */}

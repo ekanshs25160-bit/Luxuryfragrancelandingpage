@@ -10,7 +10,6 @@ const PRODUCTS: Product[] = [
       hover: "https://images.unsplash.com/photo-1761328559705-3addc2496c6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBpbiUyMHN1aXQlMjBldmVuaW5nJTIwbHV4dXJ5fGVufDF8fHx8MTc3NTkyNzIyNHww&ixlib=rb-4.1.0&q=80&w=800",
     },
     prices: { "8ML": 2499, "50ML": 12999 },
-    longevity: "12+ Hrs",
     occasion: "Night",
   },
   {
@@ -22,7 +21,6 @@ const PRODUCTS: Product[] = [
       hover: "https://images.unsplash.com/photo-1647984356140-d6aab249b002?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGFwcGx5aW5nJTIwcGVyZnVtZSUyMGFlc3RoZXRpY3xlbnwxfHx8fDE3NzU5MjcyMjR8MA&ixlib=rb-4.1.0&q=80&w=800",
     },
     prices: { "8ML": 1999, "50ML": 9999 },
-    longevity: "8+ Hrs",
     occasion: "Versatile",
   }
 ];

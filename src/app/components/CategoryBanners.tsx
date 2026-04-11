@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function CategoryBanners() {
   return (
-    <section className="bg-[#FFFFFF] flex flex-col">
+    <section id="blogs" className="bg-[#FFFFFF] flex flex-col scroll-mt-24">
       <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export function CategoryBanners() {
       </div>
 
       {/* ROW 2: Lifestyle Imagery (Left) & Category Title (Right) */}
-      <div className="flex flex-col md:flex-row w-full min-h-[80vh] relative overflow-hidden group">
+      <div className="flex flex-col md:flex-row w-full min-h-[80vh] relative overflow-hidden group mt-12 md:mt-20">
         
         {/* Left Side: Lifestyle Image */}
         <div className="md:w-1/2 w-full h-[50vh] md:h-auto relative z-10 bg-black">
