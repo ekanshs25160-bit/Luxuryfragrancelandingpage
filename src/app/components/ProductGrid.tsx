@@ -91,7 +91,7 @@ function ProductCard({ product }: { product: Product }) {
           onClick={() => setSelectedSize("8ML")}
           className={`w-12 h-12 rounded-full flex items-center justify-center font-sans text-[10px] font-bold tracking-wider transition-colors ${
             selectedSize === "8ML"
-              ? "bg-brand text-accent"
+              ? "bg-[#4B1D1D] text-light"
               : "bg-transparent border border-brand/20 text-brand hover:border-accent"
           }`}
         >
@@ -102,7 +102,7 @@ function ProductCard({ product }: { product: Product }) {
           onClick={() => setSelectedSize("50ML")}
           className={`w-12 h-12 rounded-full flex items-center justify-center font-sans text-[10px] font-bold tracking-wider transition-colors ${
             selectedSize === "50ML"
-              ? "bg-brand text-accent"
+              ? "bg-[#4B1D1D] text-light"
               : "bg-transparent border border-brand/20 text-brand hover:border-accent"
           }`}
         >
@@ -112,7 +112,7 @@ function ProductCard({ product }: { product: Product }) {
 
       <button
         type="button"
-        className="w-full bg-brand hover:bg-dark text-light py-4 font-sans text-[11px] font-bold uppercase tracking-[0.15em] transition-colors flex items-center justify-center gap-2 mt-auto"
+        className="w-full bg-[#4B1D1D] hover:bg-dark text-light py-4 font-sans text-[11px] font-bold uppercase tracking-[0.15em] transition-colors flex items-center justify-center gap-2 mt-auto"
       >
         <ShoppingBag className="w-4 h-4" />
         Add to Bag

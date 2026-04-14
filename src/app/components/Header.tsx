@@ -24,7 +24,7 @@ export function Header() {
     <motion.header
       className={cn(
         "fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-8 md:px-16 py-5 transition-all duration-500",
-        isScrolled ? "bg-brand shadow-2xl" : "bg-gradient-to-b from-[var(--color-brand-dark)]/60 to-transparent"
+        isScrolled ? "bg-[#4B1D1D] shadow-2xl" : "bg-gradient-to-b from-[var(--color-brand-dark)]/60 to-transparent"
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}

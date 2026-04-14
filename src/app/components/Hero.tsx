@@ -27,7 +27,7 @@ export function Hero() {
 
       <div className="relative z-10 flex flex-col items-center text-center px-8 md:px-24 w-full mt-20">
         <motion.p
-          className="font-sans uppercase text-[10px] md:text-xs tracking-[0.3em] font-semibold text-accent mb-6"
+          className="font-sans uppercase text-[10px] md:text-xs tracking-[0.3em] font-semibold text-light mb-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}

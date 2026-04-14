@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
-const footerBg = "var(--color-brand-dark)";
+const footerBg = "#4B1D1D";
 const inputBg = "var(--color-brand-secondary)";
 
 const linkClass =
@@ -140,7 +140,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="w-full sm:w-auto px-10 py-3.5 bg-accent text-light text-xs font-bold uppercase tracking-[0.2em] hover:bg-dark transition-colors"
+                className="w-full sm:w-auto px-10 py-3.5 bg-[#4B1D1D] text-light text-xs font-bold uppercase tracking-[0.2em] hover:bg-dark transition-colors"
               >
                 SUBSCRIBE
               </button>

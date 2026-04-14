@@ -169,7 +169,7 @@ export function Testimonials() {
           <p className="text-dark/70 font-sans text-sm tracking-wide mb-6">
             Join hundreds of satisfied fragrance connoisseurs
           </p>
-          <button className="px-10 py-4 bg-brand text-light hover:bg-dark font-sans text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-sm hover:-translate-y-1">
+          <button className="px-10 py-4 bg-[#4B1D1D] text-light hover:bg-dark font-sans text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-sm hover:-translate-y-1">
             Share Your Experience
           </button>
         </motion.div>
