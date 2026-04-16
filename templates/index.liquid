@@ -1,0 +1,26 @@
+{% comment %}
+  The homepage template - React app will handle the content
+{% endcomment %}
+
+{% comment %}
+  This template is primarily handled by the React app.
+  The React app will mount to the #root div in theme.liquid
+{% endcomment %}
+
+<div class="page-width">
+  <h1 class="main-page-title page-title h0 scroll-trigger animate--fade-in">
+    {{ page_title | default: shop.name }}
+  </h1>
+</div>
+
+{% comment %}
+  Fallback content for when JavaScript is disabled
+{% endcomment %}
+<noscript>
+  <div class="page-width">
+    <div class="rte">
+      <p>{{ 'general.javascript_disabled' | t }}</p>
+      <p>Welcome to {{ shop.name }}. Please enable JavaScript to view our products and features.</p>
+    </div>
+  </div>
+</noscript>

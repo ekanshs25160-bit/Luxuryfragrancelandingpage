@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "build:shopify": "vite build && npm run copy:liquid",
+    "copy:liquid": "cp -r liquid/* . 2>/dev/null || true",
+    "dev": "vite",
+    "clean": "rm -rf assets/*.js assets/*.css assets/images/* 2>/dev/null || true",
+    "deploy:prepare": "npm run clean && npm run build:shopify"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
