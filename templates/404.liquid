@@ -1,0 +1,9 @@
+<div class="page-width">
+  <div class="error-page inner">
+    <div class="text-center">
+      <h1>{{ '404' | t: default: 'Page not found' }}</h1>
+      <p>{{ 'general.404.subtext' | t: default: 'The page you requested does not exist.' }}</p>
+      <a href="{{ routes.root_url }}" class="btn">{{ 'general.404.back_to_home' | t: default: 'Back to home' }}</a>
+    </div>
+  </div>
+</div>

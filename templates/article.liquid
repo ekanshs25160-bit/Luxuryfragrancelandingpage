@@ -1,0 +1,54 @@
+<article class="article-template" itemscope itemtype="http://schema.org/Article">
+  <div class="page-width page-width--narrow">
+    <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
+
+    {% if article.image %}
+      <div class="article-template__hero-container">
+        <img
+          srcset="{{ article.image | image_url: width: 600 }} 600w, {{ article.image | image_url: width: 1100 }} 1100w"
+          sizes="(min-width: 750px) calc(100vw - 10rem), 100vw"
+          src="{{ article.image | image_url: width: 1100 }}"
+          loading="eager"
+          width="{{ article.image.width }}"
+          height="{{ article.image.height }}"
+          alt="{{ article.image.alt | escape }}"
+          itemprop="image"
+        >
+      </div>
+    {% endif %}
+
+    <div class="article-template__content rte" itemprop="articleBody">
+      {{ article.content }}
+    </div>
+
+    {% if blog.comments_enabled? %}
+      <div id="comments">
+        {% if article.comments_count > 0 %}
+          <h2>{{ 'blogs.article.comments' | t: count: article.comments_count }}</h2>
+          {% paginate article.comments by 5 %}
+            {% for comment in article.comments %}
+              <div id="{{ comment.id }}">
+                <span>{{ comment.author }}</span>
+                <span>{{ comment.published_at | time_tag: format: 'date' }}</span>
+                <p>{{ comment.content }}</p>
+              </div>
+            {% endfor %}
+            {% render 'pagination', paginate: paginate %}
+          {% endpaginate %}
+        {% endif %}
+
+        {% form 'new_comment', article %}
+          <h2>{{ 'blogs.article.comment_form_title' | t }}</h2>
+          {{ form.errors | default_errors }}
+          <label for="CommentForm-author">{{ 'blogs.article.name' | t }}</label>
+          <input type="text" name="comment[author]" id="CommentForm-author" value="{{ form.author }}" autocomplete="name" required>
+          <label for="CommentForm-email">{{ 'blogs.article.email' | t }}</label>
+          <input type="email" name="comment[email]" id="CommentForm-email" value="{{ form.email }}" autocomplete="email" required>
+          <label for="CommentForm-body">{{ 'blogs.article.message' | t }}</label>
+          <textarea rows="5" name="comment[body]" id="CommentForm-body" required>{{ form.body }}</textarea>
+          <button type="submit">{{ 'blogs.article.post' | t }}</button>
+        {% endform %}
+      </div>
+    {% endif %}
+  </div>
+</article>

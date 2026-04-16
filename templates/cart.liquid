@@ -1,0 +1,54 @@
+<div class="page-width">
+  <h1 class="visually-hidden">{{ 'sections.cart.title' | t: default: 'Your cart' }}</h1>
+
+  {% if cart.item_count > 0 %}
+    <form action="{{ routes.cart_url }}" method="post" id="cart">
+      <div class="cart-items">
+        {% for item in cart.items %}
+          <div class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
+            <div class="cart-item__media">
+              {% if item.image %}
+                <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.image.alt | escape }}" loading="lazy">
+              {% endif %}
+            </div>
+            <div class="cart-item__details">
+              <a href="{{ item.url }}" class="cart-item__name">{{ item.product.title | escape }}</a>
+              {% unless item.product.has_only_default_variant %}
+                <dl>
+                  {% for option in item.options_with_values %}
+                    <dt>{{ option.name }}: </dt>
+                    <dd>{{ option.value }}</dd>
+                  {% endfor %}
+                </dl>
+              {% endunless %}
+              <div class="cart-item__quantity">
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="{{ 'cart.update_quantity' | t: default: 'Update quantity' }}">
+              </div>
+              <div class="cart-item__price">
+                {{ item.final_line_price | money }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-footer__summary">
+          <h2>{{ 'sections.cart.subtotal' | t: default: 'Subtotal' }}</h2>
+          <p>{{ cart.total_price | money_with_currency }}</p>
+          {% if cart.taxes_included %}
+            <span>{{ 'sections.cart.taxes_included' | t: default: 'Taxes included and shipping calculated at checkout' }}</span>
+          {% endif %}
+        </div>
+        <button type="submit" name="checkout">
+          {{ 'sections.cart.checkout' | t: default: 'Check out' }}
+        </button>
+      </div>
+    </form>
+  {% else %}
+    <div class="cart--empty">
+      <h2>{{ 'sections.cart.empty' | t: default: 'Your cart is empty' }}</h2>
+      <a href="{{ routes.all_products_collection_url }}">{{ 'general.continue_shopping' | t: default: 'Continue shopping' }}</a>
+    </div>
+  {% endif %}
+</div>
