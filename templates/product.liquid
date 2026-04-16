@@ -1,8 +1,77 @@
 <div class="page-width">
-  {% section 'main-product' %}
-</div>
+  <div class="product">
+    <div class="product__media">
+      {% if product.featured_image %}
+        <img
+          src="{{ product.featured_image | image_url: width: 800 }}"
+          alt="{{ product.featured_image.alt | escape }}"
+          loading="eager"
+          width="{{ product.featured_image.width }}"
+          height="{{ product.featured_image.height }}"
+        >
+      {% endif %}
+    </div>
 
-{% comment %}
-  Product template - the main-product section renders product details.
-  Sections can be customized in the Shopify theme editor.
-{% endcomment %}
+    <div class="product__info">
+      <h1 class="product__title">{{ product.title | escape }}</h1>
+
+      <div class="product__price">
+        {% if product.compare_at_price > product.price %}
+          <s class="price--compare">{{ product.compare_at_price | money }}</s>
+        {% endif %}
+        <span class="price">{{ product.price | money }}</span>
+        {% if product.price_varies %}
+          <span class="price--from">{{ 'products.product.from_text_html' | t: price: product.price_min | money }}</span>
+        {% endif %}
+      </div>
+
+      {%- form 'product', product, id: 'product-form', novalidate: 'novalidate' -%}
+        {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+            <div class="product__option">
+              <label>{{ option.name }}</label>
+              <select name="options[{{ option.name | escape }}]">
+                {% for value in option.values %}
+                  <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
+                    {{ value | escape }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          {% endfor %}
+        {% endunless %}
+
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        <div class="product__quantity">
+          <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity.label' | t: default: 'Quantity' }}</label>
+          <input
+            type="number"
+            name="quantity"
+            id="Quantity-{{ section.id }}"
+            min="1"
+            value="1"
+          >
+        </div>
+
+        <button
+          type="submit"
+          name="add"
+          {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+        >
+          {% if product.selected_or_first_available_variant.available %}
+            {{ 'products.product.add_to_cart' | t: default: 'Add to cart' }}
+          {% else %}
+            {{ 'products.product.sold_out' | t: default: 'Sold out' }}
+          {% endif %}
+        </button>
+      {%- endform -%}
+
+      {% if product.description != blank %}
+        <div class="product__description rte">
+          {{ product.description }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
