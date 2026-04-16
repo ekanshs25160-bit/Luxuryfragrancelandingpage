@@ -21,7 +21,8 @@
         {% endif %}
         <span class="price">{{ product.price | money }}</span>
         {% if product.price_varies %}
-          <span class="price--from">{{ 'products.product.from_text_html' | t: price: product.price_min | money }}</span>
+          {%- assign price_min_formatted = product.price_min | money -%}
+          <span class="price--from">{{ 'products.product.from_text_html' | t: price: price_min_formatted }}</span>
         {% endif %}
       </div>
 
@@ -44,11 +45,11 @@
         <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
         <div class="product__quantity">
-          <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity.label' | t: default: 'Quantity' }}</label>
+          <label for="Quantity-product">{{ 'products.product.quantity.label' | t: default: 'Quantity' }}</label>
           <input
             type="number"
             name="quantity"
-            id="Quantity-{{ section.id }}"
+            id="Quantity-product"
             min="1"
             value="1"
           >

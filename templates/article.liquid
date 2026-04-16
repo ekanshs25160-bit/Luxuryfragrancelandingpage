@@ -33,21 +33,30 @@
                 <p>{{ comment.content }}</p>
               </div>
             {% endfor %}
-            {% render 'pagination', paginate: paginate %}
+            {%- if paginate.pages > 1 -%}
+              <nav class="pagination" role="navigation">
+                {%- if paginate.previous -%}
+                  <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t: default: 'Previous' }}">&laquo; {{ 'general.pagination.previous' | t: default: 'Previous' }}</a>
+                {%- endif -%}
+                {%- if paginate.next -%}
+                  <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t: default: 'Next' }}">{{ 'general.pagination.next' | t: default: 'Next' }} &raquo;</a>
+                {%- endif -%}
+              </nav>
+            {%- endif -%}
           {% endpaginate %}
         {% endif %}
 
-        {% form 'new_comment', article %}
-          <h2>{{ 'blogs.article.comment_form_title' | t }}</h2>
+        {%- form 'new_comment', article -%}
+          <h2>{{ 'blogs.article.comment_form_title' | t: default: 'Leave a comment' }}</h2>
           {{ form.errors | default_errors }}
-          <label for="CommentForm-author">{{ 'blogs.article.name' | t }}</label>
+          <label for="CommentForm-author">{{ 'blogs.article.name' | t: default: 'Name' }}</label>
           <input type="text" name="comment[author]" id="CommentForm-author" value="{{ form.author }}" autocomplete="name" required>
-          <label for="CommentForm-email">{{ 'blogs.article.email' | t }}</label>
+          <label for="CommentForm-email">{{ 'blogs.article.email' | t: default: 'Email' }}</label>
           <input type="email" name="comment[email]" id="CommentForm-email" value="{{ form.email }}" autocomplete="email" required>
-          <label for="CommentForm-body">{{ 'blogs.article.message' | t }}</label>
+          <label for="CommentForm-body">{{ 'blogs.article.message' | t: default: 'Message' }}</label>
           <textarea rows="5" name="comment[body]" id="CommentForm-body" required>{{ form.body }}</textarea>
-          <button type="submit">{{ 'blogs.article.post' | t }}</button>
-        {% endform %}
+          <button type="submit">{{ 'blogs.article.post' | t: default: 'Post comment' }}</button>
+        {%- endform -%}
       </div>
     {% endif %}
   </div>

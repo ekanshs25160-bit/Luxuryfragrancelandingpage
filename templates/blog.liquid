@@ -1,31 +1,42 @@
-<div class="page-width">
-  <div class="blog-listing">
-    <h1>{{ blog.title | escape }}</h1>
+{% paginate blog.articles by 12 %}
+  <div class="page-width">
+    <div class="blog-listing">
+      <h1>{{ blog.title | escape }}</h1>
 
-    <div class="blog-articles">
-      {% for article in blog.articles %}
-        <div class="blog-article-item">
-          <a href="{{ article.url }}">
-            {% if article.image %}
-              <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.image.alt | escape }}" loading="lazy">
+      <div class="blog-articles">
+        {% for article in blog.articles %}
+          <div class="blog-article-item">
+            <a href="{{ article.url }}">
+              {% if article.image %}
+                <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.image.alt | escape }}" loading="lazy">
+              {% endif %}
+              <h2>{{ article.title | escape }}</h2>
+            </a>
+            <time datetime="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}">
+              {{ article.published_at | date: format: 'date' }}
+            </time>
+            {% if article.excerpt != blank %}
+              <p>{{ article.excerpt }}</p>
+            {% else %}
+              <p>{{ article.content | strip_html | truncatewords: 30 }}</p>
             {% endif %}
-            <h2>{{ article.title | escape }}</h2>
-          </a>
-          <time datetime="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}">
-            {{ article.published_at | date: format: 'date' }}
-          </time>
-          {% if article.excerpt.size > 0 %}
-            <p>{{ article.excerpt }}</p>
-          {% else %}
-            <p>{{ article.content | strip_html | truncatewords: 30 }}</p>
-          {% endif %}
-          <a href="{{ article.url }}">{{ 'blogs.article.read_more' | t: default: 'Read more' }}</a>
-        </div>
-      {% else %}
-        <p>{{ 'blogs.article.no_posts' | t: default: 'This blog has no posts yet.' }}</p>
-      {% endfor %}
-    </div>
+            <a href="{{ article.url }}">{{ 'blogs.article.read_more' | t: default: 'Read more' }}</a>
+          </div>
+        {% else %}
+          <p>{{ 'blogs.article.no_posts' | t: default: 'This blog has no posts yet.' }}</p>
+        {% endfor %}
+      </div>
 
-    {% render 'pagination', paginate: paginate %}
+      {%- if paginate.pages > 1 -%}
+        <nav class="pagination" role="navigation">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}">&laquo; {{ 'general.pagination.previous' | t: default: 'Previous' }}</a>
+          {%- endif -%}
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}">{{ 'general.pagination.next' | t: default: 'Next' }} &raquo;</a>
+          {%- endif -%}
+        </nav>
+      {%- endif -%}
+    </div>
   </div>
-</div>
+{% endpaginate %}
